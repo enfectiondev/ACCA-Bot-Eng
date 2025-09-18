@@ -114,7 +114,7 @@ def create_text_chunks(documents: List[Dict[str, str]],
 
 def insert_into_chroma(chunks: List[Dict[str, str]], collection_name: str):
     """Insert chunks into ChromaDB with optimized settings"""
-    chroma_client = chromadb.HttpClient(host='3.110.207.202', port=8000)
+    chroma_client = chromadb.HttpClient(host='18.219.210.114', port=8000)
     
     try:
         chroma_client.delete_collection(collection_name)

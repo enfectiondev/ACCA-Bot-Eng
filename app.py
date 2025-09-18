@@ -44,9 +44,9 @@ class ChromaDBRetriever(BaseRetriever, PydanticBaseModel):
         super().__init__(**data)
         # Get ChromaDB host from environment variable, default to localhost
         # chroma_host = os.getenv('CHROMA_HOST', '3.110.207.202')
-        client = chromadb.HttpClient(host='3.110.207.202', port=8000)
+        client = chromadb.HttpClient(host='18.219.210.114', port=8000)
         self._collection = client.get_collection(
-            name="acca_collection",
+            name="acca_eng",
             embedding_function=embedding_function
         )
         self._embedding_function = embedding_function
@@ -131,11 +131,7 @@ def create_rag_chain():
     llm = ChatOpenAI(
         api_key=os.getenv('OPENAI_API_KEY'),
         temperature=0,
-        # model="gpt-4-turbo",
-        # model="gpt-3.5-turbo-0125",
-        # model="gpt-4o",
         model="gpt-4-0125-preview",
-        # model="gpt-4-turbo-preview",
         max_tokens=500
     )
 
